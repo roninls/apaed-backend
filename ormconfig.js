@@ -1,13 +1,10 @@
+console.log('process.env.DATABASE_URL :>> ', process.env.DATABASE_URL)
 const SnakeNamingStrategy = require('typeorm-naming-strategies')
   .SnakeNamingStrategy;
 
 module.exports = {
   "type": "postgres",
-  "host": "localhost",
-  "port": 5432,
-  "username": "postgres",
-  "password": "docker",
-  "database": "apaed",
+  "url": process.env.DATABASE_URL,
   namingStrategy: new SnakeNamingStrategy(),
   "entities": [
     "./src/models/*.ts"
