@@ -7,15 +7,15 @@ module.exports = {
   "url": process.env.DATABASE_URL,
   namingStrategy: new SnakeNamingStrategy(),
   "entities": [
-    "dist/models/*{.js,.ts}"
+    __dirname + '/**/models/*.{js,ts}'
   ],
   "migrations": [
-    "dist/database/migrations/*{.js,.ts}"
+    __dirname + '/**/database/migrations/*.{js,ts}'
   ],
   "cli": {
     "migrationsDir": [
-      "src/database/migrations/"
+      __dirname + '/**/database/migrations/'
      ],
-     "entitiesDir": "src/models"
+     "entitiesDir": __dirname + '/**/models'
   }
 };
